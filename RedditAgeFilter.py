@@ -3,12 +3,12 @@ import time
 
 reddit = praw.Reddit(
     client_id = "<CLIENT ID HERE>",
-    client_secret = "CLIENT SECRET HERE",
+    client_secret = "<CLIENT SECRET HERE>",
     user_agent = "<USER AGENT HERE>",
     )
 
 
-subreddit = reddit.subreddit("SUBREDDIT NAME HERE")
+subreddit = reddit.subreddit("<SUBREDDIT NAME HERE>")
 
 userlist = open("userlist.txt", "a+")
 counter = 1
