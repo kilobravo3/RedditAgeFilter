@@ -37,7 +37,7 @@ print("\nRunning the script now... This may take a while, depending on the size 
 for submission in subreddit.new(limit=scanlimit):
 
 #Submission Owner Check
-    try:    #Using this because deleted submissions may cause NoneType errors
+    try:    #Using this because deleted submissions may cause AttributeError
         print("*"*50, "\n")
         print("Submission Title: ", submission.title, "(SUBMISSION COUNTER:", counter, "OUT OF", scanlimit, ")")
         print("Submission Author:", submission.author)
@@ -61,7 +61,7 @@ for submission in subreddit.new(limit=scanlimit):
             print("The user doesn't meet the requirements - The account is created", int(age*12), "month(s) ago!")
             print("SKIP!", "\n")
         counter += 1
-    except NoneType:
+    except AttributeError:
         print("The submission is either deleted or removed...")
         print("SKIP!", "\n")
         counter +=1
@@ -69,7 +69,7 @@ for submission in subreddit.new(limit=scanlimit):
 #Comment Owner Check
     comments = list(submission.comments)
     for comment in comments:
-        try:    #Using this because deleted submissions may cause NoneType errors
+        try:    #Using this because deleted submissions may cause AttributeError
             print("*"*50, "\n")
             print("Comment Body:", comment.body)
             print("Comment Author:", comment.author)
@@ -92,7 +92,7 @@ for submission in subreddit.new(limit=scanlimit):
             else:
                 print("The user doesn't meet the requirements - The account is created", int(age*12), "month(s) ago!")
                 print("SKIP!", "\n")
-        except NoneType:
+        except AttributeError:
             print("The submission is either deleted or removed...")
             print("SKIP!", "\n")
 
